@@ -1,16 +1,8 @@
-\documentclass[uplatex, onecolumn,12pt]{jsbook}
+\documentclass[a4paper,12pt,onecolumn,oneside,openany]{jsbook}
 
 
-\usepackage[dvipdfmx]{graphicx}
-\usepackage{latexsym}
-\usepackage{bmpsize}
-\usepackage{url}
-\usepackage{comment}
-
-\def\Underline{\setbox0\hbox\bgroup\let\\\endUnderline}
-\def\endUnderline{\vphantom{y}\egroup\smash{\underline{\box0}}\\}
-
-\newcommand{\ttt}[1]{\texttt{#1}}
+% 設定ファイル
+\usepackage{mystyle}
 
 \title{
 {\Large 令和元年度 修士論文} \\[4cm]
@@ -30,18 +22,28 @@
 
 \clearpage
 
+\renewcommand{\thepage}{\roman{page}}
 
-\section{はじめに}
-\begin{figure}[t]
-    \begin{center}
-        \includegraphics[width=7cm]{image/syokuji_computer.png}
-        \caption{パソコンの前でご飯を食べる人のイラスト}
-        \label{fig:syokuji_computer}
-    \end{center}
-\end{figure}
+%%% 目次 %%%
 
-パソコンの前でご飯を食べることはよくある。パソコンの前でご飯を食べる人のイラストを図\ref{fig:syokuji_computer}に示す。
-このイラストは、規約の範囲内であれば、個人、法人、商用、非商用問わず無料で利用できることでおなじみの、{\bf かわいいフリー素材 いらすとや}\cite{irasutoya}より引用した。
+{\makeatletter
+\let\ps@jpl@in\ps@empty
+\makeatother
+\pagestyle{plain}
+
+\tableofcontents
+\listoffigures
+\listoftables
+\pagestyle{fancy}
+\clearpage}
+
+
+
+
+
+
+%%%%%% 1. はじめに %%%%%%
+\include{hajimeni}
 
 \section{おわりに}
 やっぱり{\bf いらすとや}のイラストはすばらしい。
