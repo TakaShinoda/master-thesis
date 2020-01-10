@@ -45,13 +45,13 @@ Kinectからの距離（深度）の画像データを取得する深度画像�
 以下の7つの画面を出力する．
 
 \begin{itemize}
-    \item Ball: スポーツで用いるボール
-    \item Color: RGBカメラの映像
-    \item Depth: 深度カメラの映像
-    \item User: 人領域の映像
-    \item Combination: 投影用
-    \item Combination\_PC: PC用
-    \item Skeleton: 人の骨格情報
+    \item Ball: スポーツで用いるボール．図\ref{ball}．
+    \item Color: RGBカメラの映像．図\ref{color}．
+    \item Depth: 深度カメラの映像．図\ref{depth}．
+    \item User: 人領域の映像．図\ref{user}．
+    \item Combination: 投影用．図\ref{combination}．
+    \item Combination\_PC: PC用．図\ref{combination}．
+    \item Skeleton: 人の骨格情報．図\ref{skeleton}．
 \end{itemize}
 
 \clearpage
@@ -79,14 +79,14 @@ Kinectからの距離（深度）の画像データを取得する深度画像�
       \includegraphics[width=4cm,height=6cm]{image/Depth.png}
      \end{center}
      \caption{Depthの画面表示}
-     \label{ball}
+     \label{depth}
     \end{minipage}
     \begin{minipage}{0.5\hsize}
      \begin{center}
       \includegraphics[width=4cm,height=6cm]{image/User.png}
      \end{center}
      \caption{Userの画面表示}
-     \label{color}
+     \label{user}
     \end{minipage}
 \end{figure}
 
@@ -98,14 +98,14 @@ Kinectからの距離（深度）の画像データを取得する深度画像�
       \includegraphics[width=4cm,height=6cm]{image/Combination.png}
      \end{center}
      \caption{CombinationとCombination\_PCの画面表示}
-     \label{ball}
+     \label{combination}
     \end{minipage}
     \begin{minipage}{0.5\hsize}
      \begin{center}
       \includegraphics[width=4cm,height=6cm]{image/Skeleton.png}
      \end{center}
      \caption{Skeletonの画面表示}
-     \label{color}
+     \label{skeleton}
     \end{minipage}
 \end{figure}
 
@@ -138,7 +138,131 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
 \end{table}
 
 \clearpage
-ほげ
+\subsubsection{手法}
+ユーザにCombination画面の投影を行い，ユーザのスケルトン座標に応じてインタラクティブに
+プロジェクションマッピングが変化する．
+システム起動時，スケルトンの認識が不安定となるため，意図していないモードに切り替わる場合がある．
+それを防ぐために「気を付け」のポーズをとる．このポーズは，左肩と右肩の$y$座標の差が$100mm$未満，
+かつ左肘と右肘の$y$座標の差が$150mm$未満の場合に対応している（図\ref{num}参照）．
+モードの一連の動作が終了すると，初期化される．そのため，連続して投影を行うことが可能となる．
+それぞれのモードに切り替わる前は，画面は黒いままである．
+
+\subsubsection{野球モード}
+ピッチャーの一連の動作を行うと，野球ボールと野球場が投影される．
+ボールは投げる際に音がなり，飛距離が伸びるにつれ，徐々に小さくなるようにしている．
+ボールの位置が$x$座標のしきい値（被験者から見て画面左端）より大きくなった場合，ボールは消えて初期化される．
+
+以下にその手順を示す．
+
+\begin{enumerate}
+    \item 胸の付近で両手を構える(以下の6つの条件を満たす必要がある)
+        \begin{itemize}
+            \item 左肘の$x$座標と胴の中心の$x$座標の差が$180mm$未満
+            \item 左肘の$y$座標と胴の中心の$y$座標の差が$180mm$未満
+            \item 右肘の$x$座標と胴の中心の$x$座標の差が$180mm$未満
+            \item 右肘の$y$座標と胴の中心の$y$座標の差が$180mm$未満
+            \item 首の$y$座標と左手の$y$座標の差が$180mm$未満
+            \item 首の$y$座標と右手の$y$座標の差が$180mm$未満
+        \end{itemize}
+    \item 頭より上に来るように右手を振り上げるとボールが出現し動き出す（以下の条件で認識する）．
+        \begin{itemize}
+            \item 振り上げた右手の$y$座標が頭の中心の$y$座標よりも高い
+        \end{itemize}
+\end{enumerate}
+
+\clearpage
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=8cm]{image/baseball.png}
+    \caption{野球モードを実行した際のCombinationの画面表示}
+  \label{baseball}
+\end{figure}
+
+
+\subsubsection{サッカーモード}
+リフティングの一連の動作を行うと，サッカーボールとサッカー場が投影される．
+ボールを蹴り上げる際には音がなる．また，
+ボールの位置が$y$座標のしきい値（画面下）より低くなった場合，ボールは消え初期化される．
+
+以下にその手順を示す．
+
+\begin{enumerate}
+    \item 右膝を右腰ほどの高さになるように蹴り上げるとボールが出現する（以下の条件で認識する）．
+        \begin{itemize}
+            \item 右膝の$y$座標が右腰から$300mm$低い位置より高く蹴り上げると，ボールが出現し動き出す．            
+        \end{itemize}
+    \item 右膝を下ろすとボールは下がり続ける．
+\end{enumerate}
+
+
+\begin{figure}[b]
+    \centering
+    \includegraphics[width=8cm]{image/soccer.png}
+    \caption{サッカーモードを実行した際のCombinationの画面表示}
+  \label{baseball}
+\end{figure}
+
+\clearpage
+
+また，リフティングの動きは，以下の物理演算を使用している．
+
+$y$座標は上向きを正とし，プロジェクションマッピングの画面中央を$y=0$とする．
+
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=7cm]{image/butsuri.png}
+    \caption{リフティングの動きを実装するために使用した物理演算}
+  \label{butsuri}
+\end{figure}
+
+
+
+\[
+    \begin{cases}
+        v_0，v_0': 初速度 & \\
+        t: 時間 & \\
+        g: 重力加速度（g=9.8）とする． &
+    \end{cases}
+\]
+
+\vspace{1cm}
+
+\begin{itemize}
+    \item[a] ボールの位置が$y \geqq 0$の場合
+    
+        $y=v_0t-\frac{1}{2}gt^2$
+
+        $v_0=25$とすると，$y=25*t-\frac{1}{2}gt^2$
+    \item[bc] ボールの位置が$y < 0$の場合
+        \begin{itemize}
+            \item[b] 一定速度で落下
+            \item[c] ボールを蹴り上げる動作をした時
+            
+            $y=v_0't-\frac{1}{2}gt^2$
+        \end{itemize}
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=6cm]{image/ballenzan.png}
+    \caption{ボールを蹴り上げた時点でのボールの位置}
+  \label{enzan}
+\end{figure}
+
+\vspace{1cm}
+
+ボールの最高点の位置を$y=h$（図\ref{butsuri}参照）
+
+ボールを蹴り上げた時点でのボールの位置を$y=-h$（図\ref{butsuri}，図\ref{enzan}参照）
+と仮定する.
+
+連続したリフティング動作を行えるようにするため，aでのボールの最高点に，
+再び蹴り上げたボールの高さをそろえる．これを実現させるため，以下の計算を行う（図\ref{butsuri}参照）．
+
+
 
 \clearpage
 \subsection{物体検出器を用いた手法}
