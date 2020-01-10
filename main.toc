@@ -13,7 +13,9 @@
 \contentsline {subsection}{\numberline {3.3.1}骨格座標を用いた手法}{9}{subsection.3.3.1}
 \contentsline {subsubsection}{表示画面}{9}{section*.5}
 \contentsline {subsubsection}{スケルトンナンバーについて}{12}{section*.6}
-\contentsline {subsubsection}{ほげ}{13}{section*.7}
-\contentsline {subsection}{\numberline {3.3.2}物体検出器を用いた手法}{14}{subsection.3.3.2}
-\contentsline {chapter}{謝辞}{15}{section*.8}
-\contentsline {chapter}{参考文献}{16}{chapter*.10}
+\contentsline {subsubsection}{手法}{13}{section*.7}
+\contentsline {subsubsection}{野球モード}{13}{section*.8}
+\contentsline {subsubsection}{サッカーモード}{14}{section*.9}
+\contentsline {subsection}{\numberline {3.3.2}物体検出器を用いた手法}{16}{subsection.3.3.2}
+\contentsline {chapter}{謝辞}{17}{section*.10}
+\contentsline {chapter}{参考文献}{18}{chapter*.12}
