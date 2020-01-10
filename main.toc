@@ -16,6 +16,6 @@
 \contentsline {subsubsection}{手法}{13}{section*.7}
 \contentsline {subsubsection}{野球モード}{13}{section*.8}
 \contentsline {subsubsection}{サッカーモード}{14}{section*.9}
-\contentsline {subsection}{\numberline {3.3.2}物体検出器を用いた手法}{16}{subsection.3.3.2}
-\contentsline {chapter}{謝辞}{17}{section*.10}
-\contentsline {chapter}{参考文献}{18}{chapter*.12}
+\contentsline {subsection}{\numberline {3.3.2}物体検出器を用いた手法}{17}{subsection.3.3.2}
+\contentsline {chapter}{謝辞}{18}{section*.10}
+\contentsline {chapter}{参考文献}{19}{chapter*.12}
