@@ -42,6 +42,7 @@ Kinectからの距離（深度）の画像データを取得する深度画像�
 
 \subsection{骨格座標を用いた手法}
 \subsubsection{表示画面}
+\label{kokkaku}
 以下の7つの画面を出力する．
 
 \begin{itemize}
@@ -232,16 +233,20 @@ $y$座標は上向きを正とし，プロジェクションマッピングの�
 
 \begin{itemize}
     \item[a] ボールの位置が$y \geqq 0$の場合
-    
-        $y=v_0t-\frac{1}{2}gt^2$
-
-        $v_0=25$とすると，$y=25*t-\frac{1}{2}gt^2$
+        \begin{equation}
+            y=v_0t-\frac{1}{2}gt^2
+        \end{equation}
+        \begin{equation}
+            v_0=25とすると，y=25*t-\frac{1}{2}gt^2
+        \end{equation}
+        
     \item[bc] ボールの位置が$y < 0$の場合
         \begin{itemize}
             \item[b] 一定速度で落下
             \item[c] ボールを蹴り上げる動作をした時
-            
-            $y=v_0't-\frac{1}{2}gt^2$
+                \begin{equation}
+                    y=v_0't-\frac{1}{2}gt^2
+                \end{equation}
         \end{itemize}
 \end{itemize}
 
@@ -263,6 +268,63 @@ $y$座標は上向きを正とし，プロジェクションマッピングの�
 再び蹴り上げたボールの高さをそろえる．これを実現させるため，以下の計算を行う（図\ref{butsuri}参照）．
 
 
+\begin{itemize}
+    \item[aより]
+        \begin{equation}
+            v^2-v_0^2=2(-g)h
+        \end{equation}
+
+        最高点の速さは$v=0$より 
+
+        \begin{equation}
+            0-v_2^2=2(-g)h
+        \end{equation}
+\clearpage
+        よって
+
+        \begin{equation}
+            v_0=\sqrt{2gh}
+        \end{equation}
+
+    \item[cより]
+        \begin{equation}
+            v^2-v_0'^2=2(-g)(2h)
+        \end{equation}
+
+        最高点の速さは$v=0$より 
+
+        \begin{equation}
+            0-v_0'^2=2(-g)(2h)
+        \end{equation}
+        よって
+
+        \begin{equation}
+            v_0'=\sqrt{4gh}
+        \end{equation}
+
+    \item[以上より]
+        \begin{equation}
+            v_0'=\sqrt{2}v_0
+        \end{equation}
+
+        よって$v_0'$は$v_0$の$\sqrt{2}$倍である． 
+
+        \begin{equation}
+            v_0'=25*\sqrt{2} \fallingdotseq 35.4 
+        \end{equation}
+
+        より
+
+        \begin{equation}
+            y=35.4*t-\frac{1}{2}gt^2
+        \end{equation}
+
+    \item[dより] ボールが閾値(画面下)より低くなった場合ボールは消える． 
+
+\end{itemize}
+
 
 \clearpage
 \subsection{物体検出器を用いた手法}
+\subsubsection{表示画面}
+節\ref{kokkaku}の骨格座標を用いた手法の表示画面にさらに以下の2つ画面を追加した．
