@@ -359,7 +359,7 @@ Kincetには，スケルトントラッキングの対象となる人物を認�
     \end{minipage}
 \end{figure}
 
-\newpage
+\clearpage
 
 \subsubsection{AdaBoost}
 ブースティングは，弱い分類器を順次生成し，
@@ -376,7 +376,7 @@ AdaBoostは，学習プロセス中に分類器の認識率に適応的に重み
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=11cm]{image/adaboost.png}
+    \includegraphics[width=12cm]{image/adaboost.png}
     \caption{AdaBoost\cite{adafig}}
   \label{adaboost}
 \end{figure}
@@ -395,7 +395,72 @@ AdaBoostは，学習プロセス中に分類器の認識率に適応的に重み
 本研究では，LBP特徴量を用いた．
 
 \subsubsection{LBP特徴量}
+LBPとは，画像の認識と分類に使用できる特徴量の1つである\cite{adafig}\cite{lbp}．
+LBPは回転変動などには弱いが，照明変化の影響を受けにくく，また高速計算が可能といった特徴がある.
+
+LBPの計算は$3*3$ピクセルサイズの画素領域に着目し行う．
+まず中心の輝度値と周辺8近傍の画素の輝度値を比較する.その8近傍の内，
+輝度値が中心の輝度値以上のとき1，それ以外を0とする.ここにマスクを掛け合わせ，
+その総和を求めこの値が中心画素の輝度値と置き換える. 
+マスクとは，左上から時計回りに$2^n$の重みを割り振ったものである (図\ref{lbpfig}中，右から2番目の図).
+この作業を全画素に対して行い，できた画像をLBP画像と呼ぶ.
+こうして求めたLBP特徴量を用いて物体を認識する.
+
+\vspace{1.5cm}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=13cm]{image/lbpfig.png}
+    \caption{LBPの計算方法\cite{adafig}}
+  \label{lbpfig}
+\end{figure}
+
+\begin{equation}
+    LBP=1+16+32+64+128=241
+\end{equation}
+
+\clearpage
+\subsubsection{サッカーモードにおけるカスケード分類器の作成}
+サッカーモードにおいて，ユーザが膝でボールを蹴り上げている動作を行っている
+画像をポジテイブ画像，
+ユーザがそれ以外の動作を行っている画像をネガテイブ画像として学習を行いカスケード分類器を作成した．
+
+\vspace{1.5cm}
+
+\begin{figure}[h]
+    \begin{minipage}{0.5\hsize}
+     \begin{center}
+      \includegraphics[width=3cm,height=4cm]{image/posi.png}
+     \end{center}
+     \caption{ポジティブ画像}
+     \label{posi}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+     \begin{center}
+      \includegraphics[width=3cm,height=4cm]{image/nega2.png}
+     \end{center}
+     \caption{ネガティブ画像}
+     \label{nega}
+    \end{minipage}
+\end{figure}
+
+
+
+
+
+
 
 
 \clearpage
 \subsubsection{手法}
+節\ref{kokkaku}同様ユーザにCombination画面の投影を行う．
+
+サッカーモードにおいて，ユーザの動作をカスケード分類器を用いて検出する．
+
+検出した動作に応じて，スケルトン座標を用いらずに
+インタラクティブにプロジェクションマッピングが変化する．
+
+
+cascade画面は黒い背景画像にGray画面を合成したもの．図
+その画面に作成したcascade分類器を用いてユーザの検出を行う．
+
