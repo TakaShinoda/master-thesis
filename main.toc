@@ -20,10 +20,11 @@
 \contentsline {subsubsection}{AdaBoost}{17}{section*.11}
 \contentsline {subsubsection}{画像の特徴抽出}{17}{section*.12}
 \contentsline {subsubsection}{LBP特徴量}{18}{section*.13}
-\contentsline {subsubsection}{手法}{19}{section*.14}
-\contentsline {chapter}{\numberline {第4章}実験結果}{20}{chapter.4}
-\contentsline {chapter}{\numberline {第5章}評価}{21}{chapter.5}
-\contentsline {chapter}{\numberline {第6章}考察}{22}{chapter.6}
-\contentsline {chapter}{\numberline {第7章}おわりに}{23}{chapter.7}
-\contentsline {chapter}{謝辞}{24}{section*.15}
-\contentsline {chapter}{参考文献}{25}{chapter*.17}
+\contentsline {subsubsection}{サッカーモードにおけるカスケード分類器の作成}{19}{section*.14}
+\contentsline {subsubsection}{手法}{20}{section*.15}
+\contentsline {chapter}{\numberline {第4章}実験結果}{21}{chapter.4}
+\contentsline {chapter}{\numberline {第5章}評価}{22}{chapter.5}
+\contentsline {chapter}{\numberline {第6章}考察}{23}{chapter.6}
+\contentsline {chapter}{\numberline {第7章}おわりに}{24}{chapter.7}
+\contentsline {chapter}{謝辞}{25}{section*.16}
+\contentsline {chapter}{参考文献}{26}{chapter*.18}
