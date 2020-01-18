@@ -1,22 +1,27 @@
 \addvspace {10\jsc@mpt }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces 東京ディズニーランド Once upon a time}}{4}{figure.1.1}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces リオオリンピック\cite {rioprojection}}}{4}{figure.1.2}
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Perfume カンヌライオンズ\linebreak 国際クリエイティビティ・フェスティバル\cite {kirameku}}}{5}{figure.1.3}
-\contentsline {figure}{\numberline {1.4}{\ignorespaces 肝臓のICG発光をもとに切離線を決め，\linebreak 修正しながら手術が可能\cite {iryou}}}{5}{figure.1.4}
+\addvspace {10\jsc@mpt }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces 東京ディズニーランド Once upon a time}}{4}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces リオオリンピック\cite {rioprojection}}}{4}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Perfume カンヌライオンズ\linebreak 国際クリエイティビティ・フェスティバル\cite {kirameku}}}{5}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces 肝臓のICG発光をもとに切離線を決め，\linebreak 修正しながら手術が可能\cite {iryou}}}{5}{figure.2.4}
+\addvspace {10\jsc@mpt }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Kinect for Windows\cite {kinect}}}{6}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Ballの画面表示}}{8}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Colorの画面表示}}{8}{figure.3.3}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Depthの画面表示}}{8}{figure.3.4}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Userの画面表示}}{8}{figure.3.5}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces CombinationとCombination\_PCの画面表示}}{9}{figure.3.6}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Skeletonの画面表示}}{9}{figure.3.7}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces スケルトンナンバー}}{10}{figure.3.8}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces 野球モードを実行した際のCombinationの画面表示}}{12}{figure.3.9}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces サッカーモードを実行した際のCombinationの画面表示}}{12}{figure.3.10}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces リフティングの動きを実装するために使用した物理演算}}{13}{figure.3.11}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces ボールを蹴り上げた時点でのボールの位置}}{14}{figure.3.12}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Grayの画面表示}}{16}{figure.3.13}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Cascadeの画面表示}}{16}{figure.3.14}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces AdaBoost\cite {adafig}}}{17}{figure.3.15}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces LBPの計算方法\cite {adafig}}}{18}{figure.3.16}
 \addvspace {10\jsc@mpt }
 \addvspace {10\jsc@mpt }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Kinect for Windows\cite {kinect}}}{8}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Ballの画面表示}}{10}{figure.3.2}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Colorの画面表示}}{10}{figure.3.3}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Depthの画面表示}}{10}{figure.3.4}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Userの画面表示}}{10}{figure.3.5}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces CombinationとCombination\_PCの画面表示}}{11}{figure.3.6}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Skeletonの画面表示}}{11}{figure.3.7}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces スケルトンナンバー}}{12}{figure.3.8}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces 野球モードを実行した際のCombinationの画面表示}}{14}{figure.3.9}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces サッカーモードを実行した際のCombinationの画面表示}}{14}{figure.3.10}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces リフティングの動きを実装するために使用した物理演算}}{15}{figure.3.11}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces ボールを蹴り上げた時点でのボールの位置}}{16}{figure.3.12}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Grayの画面表示}}{18}{figure.3.13}
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Cascadeの画面表示}}{18}{figure.3.14}
-\contentsline {figure}{\numberline {3.15}{\ignorespaces AdaBoost\cite {adafig}}}{19}{figure.3.15}
+\addvspace {10\jsc@mpt }
+\addvspace {10\jsc@mpt }
