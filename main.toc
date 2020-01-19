@@ -10,25 +10,22 @@
 \contentsline {subsection}{\numberline {3.1.2}プロジェクター}{7}{subsection.3.1.2}
 \contentsline {section}{\numberline {3.2}開発環境}{7}{section.3.2}
 \contentsline {section}{\numberline {3.3}システムの概要}{7}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}骨格座標を用いた手法}{7}{subsection.3.3.1}
-\contentsline {subsubsection}{表示画面}{7}{section*.5}
-\contentsline {subsubsection}{スケルトンナンバー}{10}{section*.6}
-\contentsline {subsubsection}{手法}{11}{section*.7}
-\contentsline {subsubsection}{野球モード}{11}{section*.8}
-\contentsline {subsubsection}{サッカーモード}{12}{section*.9}
-\contentsline {subsection}{\numberline {3.3.2}物体検出器を用いた手法}{16}{subsection.3.3.2}
-\contentsline {subsubsection}{表示画面}{16}{section*.10}
-\contentsline {subsubsection}{AdaBoost}{17}{section*.11}
-\contentsline {subsubsection}{画像の特徴抽出}{17}{section*.12}
-\contentsline {subsubsection}{LBP特徴量}{18}{section*.13}
-\contentsline {subsubsection}{サッカーモードにおけるカスケード分類器の作成}{19}{section*.14}
-\contentsline {subsubsection}{手法}{20}{section*.15}
-\contentsline {chapter}{\numberline {第4章}実行結果}{21}{chapter.4}
-\contentsline {chapter}{\numberline {第5章}評価実験}{22}{chapter.5}
-\contentsline {section}{\numberline {5.1}評価実験}{22}{section.5.1}
-\contentsline {chapter}{\numberline {第6章}考察}{23}{chapter.6}
-\contentsline {section}{\numberline {6.1}考察}{23}{section.6.1}
-\contentsline {chapter}{\numberline {第7章}おわりに}{24}{chapter.7}
-\contentsline {section}{\numberline {7.1}おわりに}{24}{section.7.1}
-\contentsline {chapter}{謝辞}{25}{section*.16}
-\contentsline {chapter}{参考文献}{26}{chapter*.18}
+\contentsline {subsection}{\numberline {3.3.1}表示画面}{7}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}スケルトンナンバー}{10}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}野球モード}{11}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}サッカーモード}{12}{subsection.3.3.4}
+\contentsline {subsection}{\numberline {3.3.5}カスケード分類器を用いたユーザのポーズ認識}{15}{subsection.3.3.5}
+\contentsline {subsubsection}{AdaBoost}{16}{section*.5}
+\contentsline {subsubsection}{画像の特徴抽出}{16}{section*.6}
+\contentsline {subsubsection}{LBP特徴量}{17}{section*.7}
+\contentsline {subsubsection}{サッカーモードにおけるカスケード分類器の作成}{18}{section*.8}
+\contentsline {subsubsection}{手法}{19}{section*.9}
+\contentsline {chapter}{\numberline {第4章}実行結果}{20}{chapter.4}
+\contentsline {chapter}{\numberline {第5章}評価実験}{21}{chapter.5}
+\contentsline {section}{\numberline {5.1}評価実験}{21}{section.5.1}
+\contentsline {chapter}{\numberline {第6章}考察}{22}{chapter.6}
+\contentsline {section}{\numberline {6.1}考察}{22}{section.6.1}
+\contentsline {chapter}{\numberline {第7章}おわりに}{23}{chapter.7}
+\contentsline {section}{\numberline {7.1}おわりに}{23}{section.7.1}
+\contentsline {chapter}{謝辞}{24}{section*.10}
+\contentsline {chapter}{参考文献}{25}{chapter*.12}
