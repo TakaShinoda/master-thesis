@@ -37,7 +37,7 @@ Kinectからの距離（深度）の画像データを取得する深度画像�
 \end{itemize}
 
 \section{システムの概要}
-本研究では，スポーツに焦点を当て野球とサッカーのアクションを行えるプロジェクションマッピングを実装した．
+本研究では，スポーツに焦点を当て野球とサッカーの動作を行えるプロジェクションマッピングを実装した．
 
 
 \subsection{表示画面}
@@ -285,14 +285,11 @@ $y$座標は上向きを正とし，プロジェクションマッピングの�
 
 \vspace{1cm}
 
-\[
-    \begin{cases}
-        ボールの最高点の位置をy=h（図\ref{butsuri}参照） & \\
-        ボールを蹴り上げた時点でのボールの位置をy=-h（図\ref{butsuri}，図\ref{enzan}参照）と仮定する &
-    \end{cases}
-\]
 
-
+\begin{itemize}
+    \item ボールの最高点の位置をy=h（図\ref{butsuri}参照）
+    \item ボールを蹴り上げた時点でのボールの位置をy=-h（図\ref{butsuri}，図\ref{enzan}参照）と仮定
+\end{itemize}
 
 
 連続したリフティング動作を行えるようにするため，aでのボールの最高点に，
@@ -360,9 +357,8 @@ $y$座標は上向きを正とし，プロジェクションマッピングの�
 Kincetには，スケルトントラッキングの対象となる人物を認識した
 人物から無作為に選択する問題が存在している\cite{hitogomi}.
 骨格座標を用いた手法では，ユーザがKinectの視野から隠れた後，再度Kinectの視野内に
-入った場合，ユーザの骨格座標の再追従が上手く行われない場合があった．
-その問題を解決する手段として，カスケード分類器を用いた手法を提案する．
-
+入った場合，ユーザの骨格座標の再追従が上手く行われない時があった．
+その問題を解決する手段として，Gray画面にcascade分類器を用いてユーザの検出を行う手法を提案する．
 
 
 \clearpage
@@ -377,7 +373,7 @@ AdaBoostは，学習プロセス中に分類器の認識率に適応的に重み
 
 図\ref{adaboost}において，$h_T(x)$は$T$個目の特徴量を指し，$\alpha$は重みを指す．
 
-\vspace{1.5cm}
+\vspace{1.2cm}
 
 
 \begin{figure}[h]
@@ -387,9 +383,39 @@ AdaBoostは，学習プロセス中に分類器の認識率に適応的に重み
   \label{adaboost}
 \end{figure}
 
+\vspace{1.2cm}
+
+\begin{itemize}
+    \item ブースティングのおおまかな流れ\cite{suugaku}
+        \begin{enumerate}
+            \item $弱学習器h_1(x)を作る$
+            \item $h_1(x)の結果を考慮して，次の弱学習器h_2(x)を作る$
+            \item $以下順々に，h_{t-1}(x)の結果を考慮して，次の弱学習器h_tを作る$
+            \item $h_Tまで作ったらh_1(x)からh_T(x)までをまとめて強学習器h(x)を作る$
+        \end{enumerate}
+        \clearpage
+    
+    \item AdaBoostの重み
+        \begin{itemize}
+            \item 各学習器の重み$\alpha_t$の決め方（$E_t$: 学習器$h_t$の誤差）
+                \begin{equation}
+                    \alpha_t=\frac{1}{2}\ln(\frac{1-E_t}{E_t})
+                \end{equation}
+                
+
+                $h_t$の誤分類が大きくなればなるほど，$\alpha_t$が小さくなり$h_t$の重要度は小さくなる．
+
+            \item $t$回目の学習におけるサンプル$i$の重み$w_i^{(t)}$の決め方
+                \begin{equation}
+                    w_i^{(t)}=C_tw_i^{(t-1)}e^{-y_i\alpha_th_t(x_i)}
+                \end{equation}
+            
+        \end{itemize}
+\end{itemize}
+
 
 \subsubsection{画像の特徴抽出}
-分類器は，学習時に特徴量の抽出を行う． 
+カスケード分類器は，学習時に特徴量の抽出を行う． 
 以下に3つの特徴量の抽出方法を示す．
 
 \begin{itemize}
@@ -400,6 +426,8 @@ AdaBoostは，学習プロセス中に分類器の認識率に適応的に重み
 
 本研究では，LBP特徴量を用いた．
 
+
+\clearpage
 \subsubsection{LBP特徴量}
 LBPとは，画像の認識と分類に使用できる特徴量の1つである\cite{adafig}\cite{lbp}．
 LBPは回転変動などには弱いが，照明変化の影響を受けにくく，また高速計算が可能といった特徴がある.
@@ -455,18 +483,4 @@ LBPの計算は$3*3$ピクセルサイズの画素領域に着目し行う．
 
 
 
-
-
-\clearpage
-\subsubsection{手法}
-節\ref{kokkaku}同様ユーザにCombination画面の投影を行う．
-
-サッカーモードにおいて，ユーザの動作をカスケード分類器を用いて検出する．
-
-検出した動作に応じて，スケルトン座標を用いらずに
-インタラクティブにプロジェクションマッピングが変化する．
-
-
-cascade画面は黒い背景画像にGray画面を合成したもの．図
-その画面に作成したcascade分類器を用いてユーザの検出を行う．
 
