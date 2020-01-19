@@ -40,10 +40,8 @@ Kinectからの距離（深度）の画像データを取得する深度画像�
 本研究では，スポーツに焦点を当て野球とサッカーのアクションを行えるプロジェクションマッピングを実装した．
 
 
-\subsection{骨格座標を用いた手法}
-\subsubsection{表示画面}
-\label{kokkaku}
-以下の7つの画面を出力する．
+\subsection{表示画面}
+以下の9つの画面を出力する．
 
 \begin{itemize}
     \item Ball: スポーツで用いるボール．図\ref{ball}．
@@ -53,6 +51,8 @@ Kinectからの距離（深度）の画像データを取得する深度画像�
     \item Combination: 投影用．図\ref{combination}．
     \item Combination\_PC: PC用．図\ref{combination}．
     \item Skeleton: 人の骨格情報．図\ref{skeleton}．
+    \item Gray: Color画面にグレースケールを実行した画面．図\ref{gray}．
+    \item Cascade: 黒い背景画像にGray画面を合成した画面．図\ref{cascade}．
 \end{itemize}
 
 \clearpage
@@ -110,9 +110,26 @@ Kinectからの距離（深度）の画像データを取得する深度画像�
     \end{minipage}
 \end{figure}
 
+\begin{figure}[p]
+    \begin{minipage}{0.5\hsize}
+     \begin{center}
+      \includegraphics[width=4cm,height=6cm]{image/gray.png}
+     \end{center}
+     \caption{Grayの画面表示}
+     \label{gray}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+     \begin{center}
+      \includegraphics[width=4cm,height=6cm]{image/cascade.png}
+     \end{center}
+     \caption{Cascadeの画面表示}
+     \label{cascade}
+    \end{minipage}
+\end{figure}
+
 \clearpage
 
-\subsubsection{スケルトンナンバー}
+\subsection{スケルトンナンバー}
 Kinect v1において，スケルトンは図\ref{num}に示すように番号が割り当てられている．
 
 \begin{figure}[htbp]
@@ -138,20 +155,26 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
     \label{num}
 \end{table}
 
-\clearpage
-\subsubsection{手法}
+
+
 ユーザにCombination画面の投影を行い，ユーザのスケルトン座標に応じてインタラクティブに
-プロジェクションマッピングが変化する．
-システム起動時，スケルトンの認識が不安定となるため，意図していないモードに切り替わる場合がある．
-それを防ぐために「気を付け」のポーズをとる．このポーズは，左肩と右肩の$y$座標の差が$100mm$未満，
-かつ左肘と右肘の$y$座標の差が$150mm$未満の場合に対応している（図\ref{num}参照）．
-モードの一連の動作が終了すると，初期化される．そのため，連続して投影を行うことが可能となる．
+プロジェクションマッピングを変化させる．
+システム起動時のスケルトンの認識の不安定さを防ぐために，ユーザは「気を付け」のポーズをとる事にする．
+このポーズは以下に示す状態のポーズである．（図\ref{num}参照）．
+
+\begin{itemize}
+    \item 左肩と右肩の$y$座標の差が$100mm$未満
+    \item 左肘と右肘の$y$座標の差が$150mm$未満
+\end{itemize}
+
+モードの一連の動作が終了すると，初期化を行う．
+それによって，連続して投影を行うことが可能にした．
 それぞれのモードに切り替わる前は，画面は黒いままである．
 
-\subsubsection{野球モード}
-ピッチャーの一連の動作を行うと，野球ボールと野球場が投影される．
-ボールは投げる際に音がなり，飛距離が伸びるにつれ，徐々に小さくなるようにしている．
-ボールの位置が$x$座標のしきい値（被験者から見て画面左端）より大きくなった場合，ボールは消えて初期化される．
+\subsection{野球モード}
+ピッチャーの一連の動作を行う際に，野球ボールと野球場が投影される．
+ボールは投げる際に音がなり，飛距離が伸びるにつれ，徐々に小さくなる．
+ボールの位置が$x$座標のしきい値（被験者から見て画面左端)より大きくなった場合，ボールは消えて初期化される．
 
 以下にその手順を示す．
 
@@ -171,17 +194,19 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
         \end{itemize}
 \end{enumerate}
 
-\clearpage
 
-\begin{figure}[t]
+
+\begin{figure}[h]
     \centering
-    \includegraphics[width=8cm]{image/baseball.png}
+    \includegraphics[width=6cm]{image/baseball.png}
     \caption{野球モードを実行した際のCombinationの画面表示}
   \label{baseball}
 \end{figure}
 
 
-\subsubsection{サッカーモード}
+\clearpage
+
+\subsection{サッカーモード}
 リフティングの一連の動作を行うと，サッカーボールとサッカー場が投影される．
 ボールを蹴り上げる際には音がなる．また，
 ボールの位置が$y$座標のしきい値（画面下）より低くなった場合，ボールは消え初期化される．
@@ -197,25 +222,25 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
 \end{enumerate}
 
 
-\begin{figure}[b]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=8cm]{image/soccer.png}
+    \includegraphics[width=6cm]{image/soccer.png}
     \caption{サッカーモードを実行した際のCombinationの画面表示}
   \label{baseball}
 \end{figure}
 
-\clearpage
+\vspace{1cm}
 
 また，リフティングの動きは，以下の物理演算を使用している．
 
 $y$座標は上向きを正とし，プロジェクションマッピングの画面中央を$y=0$とする．
 
-
+\clearpage
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=7cm]{image/butsuri.png}
-    \caption{リフティングの動きを実装するために使用した物理演算}
+    \includegraphics[width=9cm]{image/butsuri2.png}
+    \caption{リフティングのボールの動き}
   \label{butsuri}
 \end{figure}
 
@@ -239,8 +264,7 @@ $y$座標は上向きを正とし，プロジェクションマッピングの�
         \begin{equation}
             v_0=25とすると，y=25*t-\frac{1}{2}gt^2
         \end{equation}
-        
-    \item[bc] ボールの位置が$y < 0$の場合
+    \item[b,c] ボールの位置が$y < 0$の場合
         \begin{itemize}
             \item[b] 一定速度で落下
             \item[c] ボールを蹴り上げる動作をした時
@@ -249,6 +273,8 @@ $y$座標は上向きを正とし，プロジェクションマッピングの�
                 \end{equation}
         \end{itemize}
 \end{itemize}
+
+\vspace{1.5cm}
 
 \begin{figure}[htbp]
     \centering
@@ -259,10 +285,15 @@ $y$座標は上向きを正とし，プロジェクションマッピングの�
 
 \vspace{1cm}
 
-ボールの最高点の位置を$y=h$（図\ref{butsuri}参照）
+\[
+    \begin{cases}
+        ボールの最高点の位置をy=h（図\ref{butsuri}参照） & \\
+        ボールを蹴り上げた時点でのボールの位置をy=-h（図\ref{butsuri}，図\ref{enzan}参照）と仮定する &
+    \end{cases}
+\]
 
-ボールを蹴り上げた時点でのボールの位置を$y=-h$（図\ref{butsuri}，図\ref{enzan}参照）
-と仮定する.
+
+
 
 連続したリフティング動作を行えるようにするため，aでのボールの最高点に，
 再び蹴り上げたボールの高さをそろえる．これを実現させるため，以下の計算を行う（図\ref{butsuri}参照）．
@@ -279,7 +310,7 @@ $y$座標は上向きを正とし，プロジェクションマッピングの�
         \begin{equation}
             0-v_2^2=2(-g)h
         \end{equation}
-\clearpage
+
         よって
 
         \begin{equation}
@@ -323,41 +354,16 @@ $y$座標は上向きを正とし，プロジェクションマッピングの�
 
 \end{itemize}
 
-
-\clearpage
-\subsection{物体検出器を用いた手法}
-Kincetには，スケルトントラッキングの対象となる人物を認識した
-人物から無作為に選択する問題が存在している\cite{hitogomi}.
-骨格座標を用いたでは，ユーザがKinectの視野から隠れた後，再度Kinectの視野内に
-入った場合，ユーザの骨格座標の再追従が行われない問題があった．
-その問題を解決する手段として，物体検出器を用いた手法を提案する．
-
-\subsubsection{表示画面}
-節\ref{kokkaku}の骨格座標を用いた手法の表示画面にさらに以下の2つ画面を追加した．
-
-\begin{itemize}
-    \item Gray: Color画面にグレースケールを実行した画面．図\ref{gray}．
-    \item Cascade: 黒い背景画像にGray画面を合成した画面．図\ref{cascade}．
-\end{itemize}
-
 \vspace{1.5cm}
 
-\begin{figure}[h]
-    \begin{minipage}{0.5\hsize}
-     \begin{center}
-      \includegraphics[width=4cm,height=6cm]{image/gray.png}
-     \end{center}
-     \caption{Grayの画面表示}
-     \label{gray}
-    \end{minipage}
-    \begin{minipage}{0.5\hsize}
-     \begin{center}
-      \includegraphics[width=4cm,height=6cm]{image/cascade.png}
-     \end{center}
-     \caption{Cascadeの画面表示}
-     \label{cascade}
-    \end{minipage}
-\end{figure}
+\subsection{カスケード分類器を用いたユーザのポーズ認識}
+Kincetには，スケルトントラッキングの対象となる人物を認識した
+人物から無作為に選択する問題が存在している\cite{hitogomi}.
+骨格座標を用いた手法では，ユーザがKinectの視野から隠れた後，再度Kinectの視野内に
+入った場合，ユーザの骨格座標の再追従が上手く行われない場合があった．
+その問題を解決する手段として，カスケード分類器を用いた手法を提案する．
+
+
 
 \clearpage
 
@@ -415,9 +421,9 @@ LBPの計算は$3*3$ピクセルサイズの画素領域に着目し行う．
   \label{lbpfig}
 \end{figure}
 
-\begin{equation}
-    LBP=1+16+32+64+128=241
-\end{equation}
+%\begin{equation}
+%    LBP=1+16+32+64+128=241
+%\end{equation}
 
 \clearpage
 \subsubsection{サッカーモードにおけるカスケード分類器の作成}
