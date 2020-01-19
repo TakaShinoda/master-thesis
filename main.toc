@@ -23,9 +23,7 @@
 \contentsline {subsubsection}{LBP特徴量}{18}{section*.13}
 \contentsline {subsubsection}{サッカーモードにおけるカスケード分類器の作成}{19}{section*.14}
 \contentsline {subsubsection}{手法}{20}{section*.15}
-\contentsline {chapter}{\numberline {第4章}実験結果}{21}{chapter.4}
-\contentsline {section}{\numberline {4.1}骨格座標}{21}{section.4.1}
-\contentsline {section}{\numberline {4.2}物体検出器}{21}{section.4.2}
+\contentsline {chapter}{\numberline {第4章}実行結果}{21}{chapter.4}
 \contentsline {chapter}{\numberline {第5章}評価実験}{22}{chapter.5}
 \contentsline {section}{\numberline {5.1}評価実験}{22}{section.5.1}
 \contentsline {chapter}{\numberline {第6章}考察}{23}{chapter.6}
