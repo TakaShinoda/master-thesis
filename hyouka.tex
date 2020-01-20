@@ -5,22 +5,101 @@
 \section{評価実験}
 サッカーモードにおけるカスケード分類器ごとの認識率などの評価にする？
 
-ユーザによるアンケート評価？
-
-背景に考慮するためにuser画面を用いた実験を行ったがうまくいかなかった．
-
 
 サッカーモードに使用する学習データを以下に示す．
 
+maxFalseAlarmRateが0.5の場合，これは現在のモデルでは，トレーニングプロセス
+中に1000個のうち5個の正のサンプルが誤って分類される事を許可する．
+また，minHitRateは各ステージでのヒット率である．
+
+\vspace{1cm}
+
 \begin{table}[h]
-    \centering
-    \scalebox{1.0}[1.0]{
-     \begin{tabular}{cc}	\hline
-       ポジティブ画像 & 771  \\    
-       ネガティブ画像 & 690  \\
-       ステージ数 & 13773  \\ \hline
-     \end{tabular}
-    } 
-    \caption{サッカーモードにおける学習データ}
-    \label{soccerstudy}
+  \centering
+  \scalebox{1.0}[1.0]{
+   \begin{tabular}{cc}	\hline
+     ポジティブ画像 & 1200  \\    
+     ネガティブ画像 & 345  \\
+     ステージ数 & 11  \\ \hline
+   \end{tabular}
+  } 
+  \caption{サッカーモードにおける学習データ1}
+  \label{soccerstudy}
+\end{table}
+
+
+\begin{table}[h]
+  \centering
+  \scalebox{1.0}[1.0]{
+   \begin{tabular}{cc}	\hline
+     ポジティブ画像 & 1200  \\    
+     ネガティブ画像 & 345  \\
+     maxFalseAlarmRate & 0.4 \\
+     ステージ数 & 14  \\ \hline
+   \end{tabular}
+  } 
+  \caption{サッカーモードにおける学習データ2}
+  \label{soccerstudy}
+\end{table}
+
+
+\begin{table}[h]
+  \centering
+  \scalebox{1.0}[1.0]{
+   \begin{tabular}{cc}	\hline
+     ポジティブ画像 & 1200  \\    
+     ネガティブ画像 & 345  \\
+     minHitRate & 0.998 \\
+     ステージ数 & 14  \\ \hline
+   \end{tabular}
+  } 
+  \caption{サッカーモードにおける学習データ3}
+  \label{soccerstudy}
+\end{table}
+
+
+\begin{table}[h]
+  \centering
+  \scalebox{1.0}[1.0]{
+   \begin{tabular}{cc}	\hline
+    ポジティブ画像 & 1200  \\    
+    ネガティブ画像 & 345  \\
+    maxFalseAlarmRate & 0.4 \\
+    minHitRate & 0.998 \\
+    ステージ数 & 16  \\ \hline
+   \end{tabular}
+  } 
+  \caption{サッカーモードにおける学習データ4}
+  \label{soccerstudy}
+\end{table}
+
+
+\begin{table}[h]
+  \centering
+  \scalebox{1.0}[1.0]{
+   \begin{tabular}{cc}	\hline
+    ポジティブ画像 & 1200  \\    
+    ネガティブ画像 & 345  \\
+    maxFalseAlarmRate & 0.35 \\
+    ステージ数 & 14  \\ \hline
+   \end{tabular}
+  } 
+  \caption{サッカーモードにおける学習データ5}
+  \label{soccerstudy}
+\end{table}
+
+
+\begin{table}[h]
+  \centering
+  \scalebox{1.0}[1.0]{
+   \begin{tabular}{cc}	\hline
+    ポジティブ画像 & 1200  \\    
+    ネガティブ画像 & 345  \\
+    maxFalseAlarmRate & 0.35 \\
+    minHitRate & 0.998 \\
+    ステージ数 & 16  \\ \hline
+   \end{tabular}
+  } 
+  \caption{サッカーモードにおける学習データ6}
+  \label{soccerstudy}
 \end{table}
