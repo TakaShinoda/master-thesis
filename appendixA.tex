@@ -1,0 +1,54 @@
+\chapter{プログラム}
+\thispagestyle{fancy}
+
+本研究で用いたプログラム
+
+\vspace{1cm}
+
+stdafx.h
+
+\begin{lstlisting}
+// stdafx.h : 標準のシステム インクルード ファイルのインクルード ファイル、または
+// 参照回数が多く、かつあまり変更されない、プロジェクト専用のインクルードファイルを記述。
+
+#pragma once
+
+#include "targetver.h"
+#include <stdio.h>
+#include <tchar.h>
+\end{lstlisting}
+
+
+
+\vspace{1.5cm}
+
+targetver.h
+\begin{lstlisting}
+#pragma once
+
+// SDKDDKVer.h をインクルードすると、利用できる最も上位の Windows プラットフォームが定義されます。
+
+// 以前の Windows プラットフォーム用にアプリケーションをビルドする場合は、WinSDKVer.h をインクルードし、
+// SDKDDKVer.h をインクルードする前に、サポート対象とするプラットフォームを示すように _WIN32_WINNT マクロを設定します。
+
+#include <SDKDDKVer.h>
+\end{lstlisting}
+
+
+\vspace{1.5cm}
+
+stdafx.cpp
+\begin{lstlisting}
+// stdafx.cpp : 標準インクルード Sample.pch のみを
+// 含むソース ファイルは、プリコンパイル済みヘッダーになります。
+// stdafx.obj にはプリコンパイル済み型情報が含まれます。
+
+#include "stdafx.h"
+\end{lstlisting}
+
+\vspace{1.5cm}
+
+main.cpp
+\begin{lstlisting}
+ここにソースコード
+\end{lstlisting}

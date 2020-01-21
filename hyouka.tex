@@ -5,12 +5,14 @@
 \section{評価実験}
 サッカーモードにおけるカスケード分類器ごとの認識率などの評価にする？
 
+10回膝上げたときの認識率とフレームの認識率
+
 
 サッカーモードに使用する学習データを以下に示す．
 
 maxFalseAlarmRateが0.5の場合，これは現在のモデルでは，トレーニングプロセス
 中に1000個のうち5個の正のサンプルが誤って分類される事を許可する．
-また，minHitRateは各ステージでのヒット率である．
+また，minHitRateは各ステージでのヒット率，時間はカスケード分類器作成に要した学習時間である．
 
 \vspace{1cm}
 
@@ -20,7 +22,8 @@ maxFalseAlarmRateが0.5の場合，これは現在のモデルでは，トレー
    \begin{tabular}{cc}	\hline
      ポジティブ画像 & 1200  \\    
      ネガティブ画像 & 345  \\
-     ステージ数 & 11  \\ \hline
+     ステージ数 & 11  \\ 
+     学習時間 & 2分58秒  \\ \hline
    \end{tabular}
   } 
   \caption{サッカーモードにおける学習データ1}
@@ -35,7 +38,8 @@ maxFalseAlarmRateが0.5の場合，これは現在のモデルでは，トレー
      ポジティブ画像 & 1200  \\    
      ネガティブ画像 & 345  \\
      maxFalseAlarmRate & 0.4 \\
-     ステージ数 & 14  \\ \hline
+     ステージ数 & 14  \\ 
+     学習時間 & 分秒  \\ \hline
    \end{tabular}
   } 
   \caption{サッカーモードにおける学習データ2}
@@ -50,7 +54,8 @@ maxFalseAlarmRateが0.5の場合，これは現在のモデルでは，トレー
      ポジティブ画像 & 1200  \\    
      ネガティブ画像 & 345  \\
      minHitRate & 0.998 \\
-     ステージ数 & 14  \\ \hline
+     ステージ数 & 14  \\ 
+     学習時間 & 分秒  \\ \hline
    \end{tabular}
   } 
   \caption{サッカーモードにおける学習データ3}
@@ -66,7 +71,8 @@ maxFalseAlarmRateが0.5の場合，これは現在のモデルでは，トレー
     ネガティブ画像 & 345  \\
     maxFalseAlarmRate & 0.4 \\
     minHitRate & 0.998 \\
-    ステージ数 & 16  \\ \hline
+    ステージ数 & 16  \\ 
+    学習時間 & 分秒  \\ \hline
    \end{tabular}
   } 
   \caption{サッカーモードにおける学習データ4}
@@ -81,7 +87,8 @@ maxFalseAlarmRateが0.5の場合，これは現在のモデルでは，トレー
     ポジティブ画像 & 1200  \\    
     ネガティブ画像 & 345  \\
     maxFalseAlarmRate & 0.35 \\
-    ステージ数 & 14  \\ \hline
+    ステージ数 & 14  \\ 
+    学習時間 & 分秒  \\ \hline
    \end{tabular}
   } 
   \caption{サッカーモードにおける学習データ5}
@@ -97,9 +104,26 @@ maxFalseAlarmRateが0.5の場合，これは現在のモデルでは，トレー
     ネガティブ画像 & 345  \\
     maxFalseAlarmRate & 0.35 \\
     minHitRate & 0.998 \\
-    ステージ数 & 16  \\ \hline
+    ステージ数 & 16  \\ 
+    学習時間 & 分秒  \\ \hline
    \end{tabular}
   } 
   \caption{サッカーモードにおける学習データ6}
+  \label{soccerstudy}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \scalebox{1.0}[1.0]{
+   \begin{tabular}{cc}	\hline
+    ポジティブ画像 & 1200  \\    
+    ネガティブ画像 & 345  \\
+    maxFalseAlarmRate & 0.3 \\
+    minHitRate & 0.999 \\
+    ステージ数 & 16  \\ 
+    学習時間 & 分秒  \\ \hline
+   \end{tabular}
+  } 
+  \caption{サッカーモードにおける学習データ7}
   \label{soccerstudy}
 \end{table}

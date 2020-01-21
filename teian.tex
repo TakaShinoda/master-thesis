@@ -17,7 +17,7 @@ Kinectからの距離（深度）の画像データを取得する深度画像�
 \begin{figure}[b]
     \centering
     \includegraphics[width=9cm]{image/kinect.png}
-    \caption{Kinect for Windows\cite{kinect}}
+    \caption[Kinect for Windows]{Kinect for Windows\cite{kinect}．}
   \label{kinect}
 \end{figure}
 
@@ -62,14 +62,14 @@ Kinectからの距離（深度）の画像データを取得する深度画像�
      \begin{center}
       \includegraphics[width=4cm,height=6cm]{image/ball.png}
      \end{center}
-     \caption{Ballの画面表示}
+     \caption[Ballの画面表示]{Ballの画面表示．}
      \label{ball}
     \end{minipage}
     \begin{minipage}{0.5\hsize}
      \begin{center}
       \includegraphics[width=4cm,height=6cm]{image/color.png}
      \end{center}
-     \caption{Colorの画面表示}
+     \caption[Colorの画面表示]{Colorの画面表示．}
      \label{color}
     \end{minipage}
 \end{figure}
@@ -79,14 +79,14 @@ Kinectからの距離（深度）の画像データを取得する深度画像�
      \begin{center}
       \includegraphics[width=4cm,height=6cm]{image/Depth.png}
      \end{center}
-     \caption{Depthの画面表示}
+     \caption[Depthの画面表示]{Depthの画面表示．}
      \label{depth}
     \end{minipage}
     \begin{minipage}{0.5\hsize}
      \begin{center}
       \includegraphics[width=4cm,height=6cm]{image/User.png}
      \end{center}
-     \caption{Userの画面表示}
+     \caption[Userの画面表示]{Userの画面表示．}
      \label{user}
     \end{minipage}
 \end{figure}
@@ -98,14 +98,14 @@ Kinectからの距離（深度）の画像データを取得する深度画像�
      \begin{center}
       \includegraphics[width=4cm,height=6cm]{image/Combination.png}
      \end{center}
-     \caption{CombinationとCombination\_PCの画面表示}
+     \caption[CombinationとCombination\_PCの画面表示]{CombinationとCombination\_PCの画面表示．}
      \label{combination}
     \end{minipage}
     \begin{minipage}{0.5\hsize}
      \begin{center}
       \includegraphics[width=4cm,height=6cm]{image/Skeleton.png}
      \end{center}
-     \caption{Skeletonの画面表示}
+     \caption[Skeletonの画面表示]{Skeletonの画面表示．}
      \label{skeleton}
     \end{minipage}
 \end{figure}
@@ -115,14 +115,14 @@ Kinectからの距離（深度）の画像データを取得する深度画像�
      \begin{center}
       \includegraphics[width=4cm,height=6cm]{image/gray.png}
      \end{center}
-     \caption{Grayの画面表示}
+     \caption[Grayの画面表示]{Grayの画面表示．}
      \label{gray}
     \end{minipage}
     \begin{minipage}{0.5\hsize}
      \begin{center}
       \includegraphics[width=4cm,height=6cm]{image/cascade.png}
      \end{center}
-     \caption{Cascadeの画面表示}
+     \caption[Cascadeの画面表示]{Cascadeの画面表示．}
      \label{cascade}
     \end{minipage}
 \end{figure}
@@ -135,7 +135,7 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
 \begin{figure}[htbp]
     \centering
     \includegraphics[height=7cm]{image/Skeleton_num.png}
-    \caption{スケルトンナンバー}
+    \caption[スケルトンナンバー]{スケルトンナンバー．}
   \label{num}
 \end{figure}
 
@@ -151,7 +151,7 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
       6 & 左手 & 14 & 右足 \\
       7 & 右手 &  &  \\ \hline
     \end{tabular}
-    \caption{スケルトンナンバーと体の位置関係}
+    \caption[スケルトンナンバーと体の位置関係]{スケルトンナンバーと体の位置関係．}
     \label{num}
 \end{table}
 
@@ -173,8 +173,19 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
 
 \subsection{野球モード}
 ピッチャーの一連の動作を行う際に，野球ボールと野球場が投影される．
+
+\vspace{1cm}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=9cm]{image/baseball_back.jpg}
+    \caption[野球モードの背景画像]{野球モードの背景画像．}
+  \label{kinect}
+\end{figure}
+\vspace{1cm}
+
 ボールは投げる際に音がなり，飛距離が伸びるにつれ，徐々に小さくなる．
 ボールの位置が$x$座標のしきい値（被験者から見て画面左端)より大きくなった場合，ボールは消えて初期化される．
+\clearpage
 
 以下にその手順を示す．
 
@@ -195,20 +206,29 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
 \end{enumerate}
 
 
-
+\vspace{1cm}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=6cm]{image/baseball.png}
-    \caption{野球モードを実行した際のCombinationの画面表示}
+    \includegraphics[width=8cm]{image/baseball.png}
+    \caption[野球モードを実行した際のCombinationの画面表示]{野球モードを実行した際のCombinationの画面表示．}
   \label{baseball}
 \end{figure}
-
+\vspace{1cm}
 
 \clearpage
 
 \subsection{サッカーモード}
 リフティングの一連の動作を行うと，サッカーボールとサッカー場が投影される．
-ボールを蹴り上げる際には音がなる．また，
+\vspace{1cm}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=9cm]{image/soccer_back.jpg}
+    \caption[サッカーモードの背景画像]{サッカーモードの背景画像．}
+  \label{kinect}
+\end{figure}
+\vspace{1cm}
+
+ボールは蹴り上げる際には音がなる．また，
 ボールの位置が$y$座標のしきい値（画面下）より低くなった場合，ボールは消え初期化される．
 
 以下にその手順を示す．
@@ -221,11 +241,11 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
     \item 右膝を下ろすとボールは下がり続ける．
 \end{enumerate}
 
-
+\vspace{1cm}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=6cm]{image/soccer.png}
-    \caption{サッカーモードを実行した際のCombinationの画面表示}
+    \includegraphics[width=8cm]{image/soccer.png}
+    \caption[サッカーモードを実行した際のCombinationの画面表示]{サッカーモードを実行した際のCombinationの画面表示．}
   \label{baseball}
 \end{figure}
 
@@ -237,10 +257,10 @@ $y$座標は上向きを正とし，プロジェクションマッピングの�
 
 \clearpage
 
-\begin{figure}[htbp]
+\begin{figure}[h]
     \centering
     \includegraphics[width=9cm]{image/butsuri2.png}
-    \caption{リフティングのボールの動き}
+    \caption[リフティングのボールの動き]{リフティングのボールの動き．}
   \label{butsuri}
 \end{figure}
 
@@ -279,7 +299,7 @@ $y$座標は上向きを正とし，プロジェクションマッピングの�
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=6cm]{image/ballenzan.png}
-    \caption{ボールを蹴り上げた時点でのボールの位置}
+    \caption[ボールを蹴り上げた時点でのボールの位置]{ボールを蹴り上げた時点でのボールの位置．}
   \label{enzan}
 \end{figure}
 
@@ -358,7 +378,7 @@ Kincetには，スケルトントラッキングの対象となる人物を認�
 人物から無作為に選択する問題が存在している\cite{hitogomi}.
 骨格座標を用いた手法では，ユーザがKinectの視野から隠れた後，再度Kinectの視野内に
 入った場合，ユーザの骨格座標の再追従が上手く行われない時があった．
-その問題を解決する手段として，Gray画面にcascade分類器を用いてユーザの検出を行う手法を提案する．
+その問題を解決する手段として，Cascade画面にカスケード分類器を用いてユーザの検出を行う手法を提案する．
 
 
 \clearpage
@@ -379,7 +399,7 @@ AdaBoostは，学習プロセス中に分類器の認識率に適応的に重み
 \begin{figure}[h]
     \centering
     \includegraphics[width=12cm]{image/adaboost.png}
-    \caption{AdaBoost\cite{adafig}}
+    \caption[AdaBoost]{AdaBoost\cite{adafig}．}
   \label{adaboost}
 \end{figure}
 
@@ -445,7 +465,7 @@ LBPの計算は$3*3$ピクセルサイズの画素領域に着目し行う．
 \begin{figure}[h]
     \centering
     \includegraphics[width=13cm]{image/lbpfig.png}
-    \caption{LBPの計算方法\cite{adafig}}
+    \caption[LBPの計算方法]{LBPの計算方法\cite{adafig}．}
   \label{lbpfig}
 \end{figure}
 
@@ -466,14 +486,14 @@ LBPの計算は$3*3$ピクセルサイズの画素領域に着目し行う．
      \begin{center}
       \includegraphics[width=3cm,height=4cm]{image/posi.png}
      \end{center}
-     \caption{ポジティブ画像}
+     \caption[ポジティブ画像]{ポジティブ画像．}
      \label{posi}
     \end{minipage}
     \begin{minipage}{0.5\hsize}
      \begin{center}
       \includegraphics[width=3cm,height=4cm]{image/nega2.png}
      \end{center}
-     \caption{ネガティブ画像}
+     \caption[ネガティブ画像]{ネガティブ画像．}
      \label{nega}
     \end{minipage}
 \end{figure}
