@@ -2,128 +2,59 @@
 \thispagestyle{fancy}
 
 
-\section{評価実験}
-サッカーモードにおけるカスケード分類器ごとの認識率などの評価にする？
+\section{評価方法}
+本研究で提案したプロジェクションマッピングに対する評価を得るために
+X人の被験者に対してアンケーの実施を行った．
 
-10回膝上げたときの認識率とフレームの認識率
+アンケートの質問内容を以下に示す．
+\begin{itemize}
+  \item[Q1.] 操作はわかりやすいか？　[5段階評価]
+  \item[Q2.] わかりづらかった場合，どこがわかりづらいか？ 
+  \item[Q3.] 楽しさについての満足感はどれくらいか？　[5段階評価]
+  \item[Q4.] 今後の改善点や意見・要望   
+\end{itemize}
 
 
-サッカーモードに使用する学習データを以下に示す．
 
-maxFalseAlarmRateが0.5の場合，これは現在のモデルでは，トレーニングプロセス
-中に1000個のうち5個の正のサンプルが誤って分類される事を許可する．
-また，minHitRateは各ステージでのヒット率，時間はカスケード分類器作成に要した学習時間である．
+\section{評価結果}
 
+
+\begin{comment}
+カスケード分類器を用いたサッカーモードのユーザ認識の図を以下に示す．
 \vspace{1cm}
-
-\begin{table}[h]
+\begin{figure}[h]
   \centering
-  \scalebox{1.0}[1.0]{
-   \begin{tabular}{cc}	\hline
-     ポジティブ画像 & 1200  \\    
-     ネガティブ画像 & 345  \\
-     ステージ数 & 11  \\ 
-     学習時間 & 2分58秒  \\ \hline
-   \end{tabular}
-  } 
-  \caption{サッカーモードにおける学習データ1}
-  \label{soccerstudy}
-\end{table}
-
-
-\begin{table}[h]
+  \includegraphics[width=9cm]{image/ninshiki.png}
+  \caption[カスケード分類器を用いたサッカーモードのユーザ認識]{カスケード分類器を用いたサッカーモードのユーザ認識．}
+\label{lbpfig}
+\end{figure}
+\vspace{1cm}
+ユーザAとユーザBのサッカーモードにおける動作をフレームで抜き出して，
+作成したカスケード分類器の認識率？を評価する．
+\begin{table}[htb]
   \centering
-  \scalebox{1.0}[1.0]{
-   \begin{tabular}{cc}	\hline
-     ポジティブ画像 & 1200  \\    
-     ネガティブ画像 & 345  \\
-     maxFalseAlarmRate & 0.4 \\
-     ステージ数 & 14  \\ 
-     学習時間 & 分秒  \\ \hline
+   \begin{tabular}{ccccc}	\hline
+     分類器 & ポジティブ画像 & ネガティブ画像 & ステージ数 & maxFalseAlarmRate\\	\hline \hline
+     A & 1200 & 345 & 7 & 0.7\\
+     B & 1200 & 345 & 8 & 0.65\\
+     C & 1200 & 345 & 9 & 0.6\\
+     D & 1200 & 345 & 13 & 0.5\\
+     E & 1200 & 345 & 14 & 0.35\\\hline
    \end{tabular}
-  } 
-  \caption{サッカーモードにおける学習データ2}
-  \label{soccerstudy}
+  \caption[評価実験に用いたカスケード分類器]{評価実験に用いたカスケード分類器．}
 \end{table}
-
-
-\begin{table}[h]
+\clearpage
+\section{評価結果}
+\begin{table}[htb]
   \centering
-  \scalebox{1.0}[1.0]{
-   \begin{tabular}{cc}	\hline
-     ポジティブ画像 & 1200  \\    
-     ネガティブ画像 & 345  \\
-     minHitRate & 0.998 \\
-     ステージ数 & 14  \\ 
-     学習時間 & 分秒  \\ \hline
+   \begin{tabular}{cccc}	\hline
+     分類器 & 認識? & 誤認識? \\	\hline \hline
+     A & & \\
+     B & & \\
+     C & & \\
+     D & & \\
+     E & & \\\hline
    \end{tabular}
-  } 
-  \caption{サッカーモードにおける学習データ3}
-  \label{soccerstudy}
+  \caption[評価結果]{評価結果．}
 \end{table}
-
-
-\begin{table}[h]
-  \centering
-  \scalebox{1.0}[1.0]{
-   \begin{tabular}{cc}	\hline
-    ポジティブ画像 & 1200  \\    
-    ネガティブ画像 & 345  \\
-    maxFalseAlarmRate & 0.4 \\
-    minHitRate & 0.998 \\
-    ステージ数 & 16  \\ 
-    学習時間 & 分秒  \\ \hline
-   \end{tabular}
-  } 
-  \caption{サッカーモードにおける学習データ4}
-  \label{soccerstudy}
-\end{table}
-
-
-\begin{table}[h]
-  \centering
-  \scalebox{1.0}[1.0]{
-   \begin{tabular}{cc}	\hline
-    ポジティブ画像 & 1200  \\    
-    ネガティブ画像 & 345  \\
-    maxFalseAlarmRate & 0.35 \\
-    ステージ数 & 14  \\ 
-    学習時間 & 分秒  \\ \hline
-   \end{tabular}
-  } 
-  \caption{サッカーモードにおける学習データ5}
-  \label{soccerstudy}
-\end{table}
-
-
-\begin{table}[h]
-  \centering
-  \scalebox{1.0}[1.0]{
-   \begin{tabular}{cc}	\hline
-    ポジティブ画像 & 1200  \\    
-    ネガティブ画像 & 345  \\
-    maxFalseAlarmRate & 0.35 \\
-    minHitRate & 0.998 \\
-    ステージ数 & 16  \\ 
-    学習時間 & 分秒  \\ \hline
-   \end{tabular}
-  } 
-  \caption{サッカーモードにおける学習データ6}
-  \label{soccerstudy}
-\end{table}
-
-\begin{table}[h]
-  \centering
-  \scalebox{1.0}[1.0]{
-   \begin{tabular}{cc}	\hline
-    ポジティブ画像 & 1200  \\    
-    ネガティブ画像 & 345  \\
-    maxFalseAlarmRate & 0.3 \\
-    minHitRate & 0.999 \\
-    ステージ数 & 16  \\ 
-    学習時間 & 分秒  \\ \hline
-   \end{tabular}
-  } 
-  \caption{サッカーモードにおける学習データ7}
-  \label{soccerstudy}
-\end{table}
+\end{comment}
