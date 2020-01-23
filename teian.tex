@@ -189,7 +189,7 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
 \begin{figure}[h]
     \centering
     \includegraphics[width=9cm]{image/baseball_back.jpg}
-    \caption[野球モードの背景画像]{野球モードの背景画像．}
+    \caption[野球モードの背景画像]{野球モードの背景画像\cite{baseballback}．}
   \label{baseballback}
 \end{figure}
 \vspace{1cm}
@@ -212,7 +212,7 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
         \end{itemize}
     \item 頭より上に来るように右手を振り上げるとボールが出現し動き出す（以下の条件で認識する）．
         \begin{itemize}
-            \item 振り上げた右手の$y$座標が頭の中心の$y$座標よりも高い
+            \item 振り上げた右(左)手の$y$座標が頭の中心の$y$座標よりも高い
         \end{itemize}
 \end{enumerate}
 
@@ -245,11 +245,11 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
 以下にその手順を示す．
 
 \begin{enumerate}
-    \item 右膝を右腰ほどの高さになるように蹴り上げるとボールが出現する（以下の条件で認識する）．
+    \item 右(左)膝を右(左)腰ほどの高さになるように蹴り上げるとボールが出現する（以下の条件で認識する）．
         \begin{itemize}
-            \item 右膝の$y$座標が右腰から$300mm$低い位置より高く蹴り上げると，ボールが出現し動き出す．            
+            \item 右(左)膝の$y$座標が右(左)腰から$300mm$低い位置より高く蹴り上げると，ボールが出現し動き出す．            
         \end{itemize}
-    \item 右膝を下ろすとボールは下がり続ける．
+    \item 右(左)膝を下ろすとボールは下がり続ける．
 \end{enumerate}
 
 \vspace{1cm}
