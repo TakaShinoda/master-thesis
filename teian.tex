@@ -162,14 +162,25 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
 システム起動時のスケルトンの認識の不安定さを防ぐために，ユーザは「気を付け」のポーズをとる事にする．
 このポーズは以下に示す状態のポーズである．（図\ref{num}参照）．
 
-\begin{itemize}
+\begin{enumerate}
     \item 左肩と右肩の$y$座標の差が$100mm$未満
     \item 左肘と右肘の$y$座標の差が$150mm$未満
-\end{itemize}
+\end{enumerate}
+
+\vspace{1cm}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8cm]{image/kiwotsuke.png}
+    \caption[「気を付け」のポーズ]{「気を付け」のポーズ．}
+  \label{kiwotsuke}
+\end{figure}
+\vspace{1cm}
 
 モードの一連の動作が終了すると，初期化を行う．
 それによって，連続して投影を行うことが可能にした．
 それぞれのモードに切り替わる前は，画面は黒いままである．
+
+\clearpage
 
 \subsection{野球モード}
 ピッチャーの一連の動作を行う際に，野球ボールと野球場が投影される．
@@ -179,7 +190,7 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
     \centering
     \includegraphics[width=9cm]{image/baseball_back.jpg}
     \caption[野球モードの背景画像]{野球モードの背景画像．}
-  \label{kinect}
+  \label{baseballback}
 \end{figure}
 \vspace{1cm}
 
@@ -224,7 +235,7 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
     \centering
     \includegraphics[width=9cm]{image/soccer_back.jpg}
     \caption[サッカーモードの背景画像]{サッカーモードの背景画像．}
-  \label{kinect}
+  \label{soccerback}
 \end{figure}
 \vspace{1cm}
 
@@ -373,6 +384,9 @@ $y$座標は上向きを正とし，プロジェクションマッピングの�
 
 \vspace{1.5cm}
 
+
+\clearpage
+
 \subsection{カスケード分類器を用いたユーザのポーズ認識}
 Kincetには，スケルトントラッキングの対象となる人物を認識した
 人物から無作為に選択する問題が存在している\cite{hitogomi}.
@@ -381,7 +395,7 @@ Kincetには，スケルトントラッキングの対象となる人物を認�
 その問題を解決する手段として，Cascade画面にカスケード分類器を用いてユーザの検出を行う手法を提案する．
 
 
-\clearpage
+
 
 \subsubsection{AdaBoost}
 ブースティングは，弱い分類器を順次生成し，
@@ -405,6 +419,7 @@ AdaBoostは，学習プロセス中に分類器の認識率に適応的に重み
 
 \vspace{1.2cm}
 
+\clearpage
 \begin{itemize}
     \item ブースティングのおおまかな流れ\cite{suugaku}
         \begin{enumerate}
@@ -413,7 +428,6 @@ AdaBoostは，学習プロセス中に分類器の認識率に適応的に重み
             \item $以下順々に，h_{t-1}(x)の結果を考慮して，次の弱学習器h_tを作る$
             \item $h_Tまで作ったらh_1(x)からh_T(x)までをまとめて強学習器h(x)を作る$
         \end{enumerate}
-        \clearpage
     
     \item AdaBoostの重み
         \begin{itemize}
