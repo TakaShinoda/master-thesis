@@ -26,8 +26,18 @@ Kinectからの距離（深度）の画像データを取得する深度画像�
 \subsection{プロジェクター}
 投影を行う際に使用した．
 
+\vspace{1cm}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8cm]{image/projector.png}
+    \caption[プロジェクター]{プロジェクター．}
+  \label{projector}
+\end{figure}
+\vspace{1cm}
+
 
 \section{開発環境}
+以下に開発環境で実装した．
 
 \begin{itemize}
     \item OS: Windows 10
@@ -35,6 +45,18 @@ Kinectからの距離（深度）の画像データを取得する深度画像�
     \item プログラミング言語: C++
     \item ライブラリ: OpenNI2, NiTE2, OpenCV, OpenGL
 \end{itemize}
+
+\subsection{OpenNI}
+
+\subsection{NiTE2}
+
+\subsection{OpenCV}
+
+\subsection{OpenGL}
+
+
+
+\clearpage
 
 \section{システムの概要}
 本研究では，スポーツに焦点を当て野球とサッカーの動作を行えるプロジェクションマッピングを実装した．
@@ -44,15 +66,15 @@ Kinectからの距離（深度）の画像データを取得する深度画像�
 以下の9つの画面を出力する．
 
 \begin{itemize}
-    \item Ball: スポーツで用いるボール．図\ref{ball}．
-    \item Color: RGBカメラの映像．図\ref{color}．
-    \item Depth: 深度カメラの映像．図\ref{depth}．
-    \item User: 人領域の映像．図\ref{user}．
-    \item Combination: 投影用．図\ref{combination}．
-    \item Combination\_PC: PC用．図\ref{combination}．
-    \item Skeleton: 人の骨格情報．図\ref{skeleton}．
-    \item Gray: Color画面にグレースケールを実行した画面．図\ref{gray}．
-    \item Cascade: 黒い背景画像にGray画面を合成した画面．図\ref{cascade}．
+    \item Ball: スポーツで用いるボール（図\ref{ball}）
+    \item Color: RGBカメラの映像（図\ref{color}）
+    \item Depth: 深度カメラの映像（図\ref{depth}）
+    \item User: 人領域の映像（図\ref{user}）
+    \item Combination: 投影用（図\ref{combination}）
+    \item Combination\_PC: PC用（図\ref{combination}）
+    \item Skeleton: 人の骨格情報（図\ref{skeleton}）
+    \item Gray: Color画面にグレースケールを実行した画面（図\ref{gray}）
+    \item Cascade: 黒い背景画像にGray画面を合成した画面（図\ref{cascade}）
 \end{itemize}
 
 \clearpage
@@ -139,6 +161,8 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
   \label{num}
 \end{figure}
 
+\vspace{1cm}
+
 \begin{table}[h]
     \centering
     \begin{tabular}{|lc|lc|} \hline
@@ -152,22 +176,25 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
       7 & 右手 &  &  \\ \hline
     \end{tabular}
     \caption[スケルトンナンバーと体の位置関係]{スケルトンナンバーと体の位置関係．}
-    \label{num}
+    \label{numtable}
 \end{table}
 
 
 
-ユーザにCombination画面の投影を行い，ユーザのスケルトン座標に応じてインタラクティブに
+ユーザに図\ref{combination}のCombination画面の投影を行い，
+ユーザのスケルトン座標に応じてインタラクティブに
 プロジェクションマッピングを変化させる\cite{busan}\cite{ijrte}．
-システム起動時のスケルトンの認識の不安定さを防ぐために，ユーザは「気を付け」のポーズをとる事にする．
-このポーズは次に示す状態のポーズとする．（図\ref{num}参照）．
+システム起動時のスケルトン認識の不安定さを防ぐために，
+ユーザは「気を付け」のポーズをとる事とする．
+このポーズは次に示す状態のポーズとする（図\ref{num}参照）．
 
 \begin{enumerate}
     \item 左肩と右肩の$y$座標の差が$100mm$未満
-    \item 左肘と右肘の$y$座標の差が$150mm$未満
+    \item 左肘と右肘の$y$座標の差が$120mm$未満
 \end{enumerate}
 
 \vspace{1cm}
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=8cm]{image/kiwotsuke.png}
@@ -176,14 +203,14 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
 \end{figure}
 \vspace{1cm}
 
-モードの一連の動作が終了すると，初期化を行う．
-それによって，連続して投影を行うことが可能にした．
-それぞれのモードに切り替わる前は，画面は黒いままである．
+それぞれのモードにおいて，一連の動作が終了すると，初期化を行う．
+それによって，連続して投影を行うことを可能にした．
+それぞれのモードに切り替わる前は，黒い初期画面である．
 
 \clearpage
 
 \subsection{野球モード}
-ピッチャーの一連の動作を行う際に，野球ボールと野球場が投影される．
+ピッチャーの一連の動作を行う際に，野球ボールと野球場の投影を行う．
 
 \vspace{1cm}
 \begin{figure}[h]
@@ -194,8 +221,10 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
 \end{figure}
 \vspace{1cm}
 
-ボールは投げる際に音がなり，飛距離が伸びるにつれ，徐々に小さくなる．
+ボールは投げる際に音がなり，飛距離が伸びるにつれ，徐々に小さくする事で実際にボールを投げたかのような演出を行う．
 ボールの位置が$x$座標のしきい値（被験者から見て画面左端)より大きくなった場合，ボールは消えて初期化される．
+
+
 \clearpage
 
 以下にその手順を示す．
@@ -203,12 +232,12 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
 \begin{enumerate}
     \item 胸の付近で両手を構える(以下の6つの条件を満たす必要がある)
         \begin{itemize}
-            \item 左肘の$x$座標と胴の中心の$x$座標の差が$180mm$未満
-            \item 左肘の$y$座標と胴の中心の$y$座標の差が$180mm$未満
-            \item 右肘の$x$座標と胴の中心の$x$座標の差が$180mm$未満
-            \item 右肘の$y$座標と胴の中心の$y$座標の差が$180mm$未満
-            \item 首の$y$座標と左手の$y$座標の差が$180mm$未満
-            \item 首の$y$座標と右手の$y$座標の差が$180mm$未満
+            \item 左肘の$x$座標と胴の中心の$x$座標の差が$200mm$未満
+            \item 左肘の$y$座標と胴の中心の$y$座標の差が$200mm$未満
+            \item 右肘の$x$座標と胴の中心の$x$座標の差が$200mm$未満
+            \item 右肘の$y$座標と胴の中心の$y$座標の差が$200mm$未満
+            \item 首の$y$座標と左手の$y$座標の差が$200mm$未満
+            \item 首の$y$座標と右手の$y$座標の差が$200mm$未満
         \end{itemize}
     \item 頭より上に来るように右手を振り上げるとボールが出現し動き出す（以下の条件で認識する）．
         \begin{itemize}
@@ -229,7 +258,7 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
 \clearpage
 
 \subsection{サッカーモード}
-リフティングの一連の動作を行うと，サッカーボールとサッカー場が投影される．
+リフティングの一連の動作を行う際に，サッカーボールとサッカー場の投影を行う．
 \vspace{1cm}
 \begin{figure}[h]
     \centering
