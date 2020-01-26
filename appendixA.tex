@@ -292,7 +292,8 @@ void display(void)
 						// 初期化
 						if (position == 8 && (baseball_status == -1 || soccer_status == -1)) {
 							// 「気を付け」の姿勢
-							if ((abs(tmp_y[2] - tmp_y[3]) < 100) && ((abs(tmp_y[4] - tmp_y[5]) < 120))) {
+							// 2=左肩 3=右肩 4=左肘 5=右肘
+							if ((abs(tmp_y[2] - tmp_y[3]) < 420) && ((abs(tmp_y[4] - tmp_y[5]) < 450))) {
 								trans_x = 0;
 								trans_y = 0;
 								baseball_status = 0;
@@ -304,10 +305,10 @@ void display(void)
 						printf("xxyyyyyy:%d %d %d\n", position, (int)point.x, (int)point.y);
 
 						// 野球（右手）
-						// RANGE200 1=首 4=左ひじ 5=右ひじ 6=左手 7=右手 8=胴体の中心
 						if (position == 8 && baseball_status == 0 && soccerFlag == false) {
-                            // 野球モード
-                            // 両手がお腹あたりにくる
+							// 野球モード
+							// 両手がお腹あたりにくる
+							// RANGE200 1=首 4=左肘 5=右肘 6=左手 7=右手 8=胴体の中心
 							if (((abs(tmp_x[4] - tmp_x[8]) < RANGE) && (abs(tmp_y[4] - tmp_y[8]) < RANGE) && ((abs(tmp_x[5] - tmp_x[8]) < RANGE) && (abs(tmp_y[5] - tmp_y[8]) < RANGE)) && ((abs(tmp_y[1] - tmp_y[6]) < RANGE) && ((abs(tmp_y[1] - tmp_y[7]) < RANGE))))) {  
 								baseball_status = 1;
 								printf("Kamae\n");
@@ -317,6 +318,7 @@ void display(void)
 						// 野球（右手）
 						if (position == 7 && baseball_status == 1 && soccer_status == 0) {
 							// 右手が頭より上にくる
+							// 0=頭 7=右手
 							if (point.y > tmp_y[0]) {
 								if (position == 7 && tmp_y[0] < tmp_y[7]) {
 									baseballFlag = true;
@@ -329,6 +331,7 @@ void display(void)
 						// 野球（左手）
 						if (position == 6 && baseball_status == 1 && soccer_status == 0) {
 							// 左手が頭より上にくる
+							// 0=頭 6=左手
 							if (point.y > tmp_y[0]) {
 								if (position == 6 && tmp_y[0] < tmp_y[6]) {
 									baseballFlag = true;
@@ -340,7 +343,8 @@ void display(void)
 
 						// サッカー（右脚）
 						if (position == 12 && soccer_status == 0 && baseballFlag == false) {
-							// 右膝が右腰より上 <-ココを分類器を用いて認識する
+							// 右膝が右腰より上
+							// 10=右腰 12=右膝
 							if (tmp_y[12] > tmp_y[10] - 300) {
 								soccerFlag = true;
 								soccer_status = 1;
@@ -350,7 +354,8 @@ void display(void)
 
 						// サッカー（左脚）
 						if (position == 11 && soccer_status == 0 && baseballFlag == false) {
-							// 左膝が左腰より上 <-ココを分類器を用いて認識する
+							// 左膝が左腰より上
+							// 9=左腰 11=左膝
 							if (tmp_y[11] > tmp_y[9] - 300) {
 								soccerFlag = true;
 								soccer_status = 1;
@@ -580,12 +585,13 @@ void display(void)
 		cascade.detectMultiScale(bg2, faces, 1.1, 1, 0, Size(50, 50));
 
 		// "faces.size()"分ループを行う
-		for (int i = 0; i<faces.size(); i++)
+		// for (int i = 0; i<faces.size(); i++)
+		if (faces.size() > 0)
 		{
 			// 検出したポーズを赤色矩形で囲む
 			rectangle(bg2, Point(faces[i].x, faces[i].y), Point(faces[i].x + faces[i].width, faces[i].y + faces[i].height), Scalar(0, 0, 255), 3, CV_AA); 
 			/*
-			//サッカー
+			// サッカー
 			//soccerFlag = true;
 			//soccer_status = 1;
 			//printf("Hizawoageru\n");
@@ -626,8 +632,9 @@ void display(void)
 		// Kensyutsu画面表示
 		cv::imshow("kensyutu", bg2);
 											   
-                                               
-        
+											   
+
+
 		// Press the Escape key to Exit
 		if (cv::waitKey(30) == VK_ESCAPE) {
 			break;
