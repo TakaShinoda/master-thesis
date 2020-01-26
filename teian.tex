@@ -37,7 +37,7 @@ Kinectからの距離（深度）の画像データを取得する深度画像�
 
 
 \section{開発環境}
-以下に開発環境で実装した．
+以下の開発環境で実装した．
 
 \begin{itemize}
     \item OS: Windows 10
@@ -47,8 +47,7 @@ Kinectからの距離（深度）の画像データを取得する深度画像�
 \end{itemize}
 
 \subsection{OpenNI2}
-OpenNI2はPrimeSence社が中心となって開発したオープンソースのライブラリである．
-OpenNI2からXtion PRO LIVEの機能にアクセスしてRGBセンサー，深度センサーの情報を扱う\cite{motion}．
+OpenNI2はPrimeSence社が中心となって開発したオープンソースのライブラリである\cite{motion}．
 
 \subsection{NiTE2}
 NiTE2とは，OpenNI2同様，PrimeSence社が提供している姿勢認識ライブラリであり，
@@ -72,7 +71,8 @@ OpenGL\cite{opengl3d}\cite{openglprogram}は，
 \clearpage
 
 \section{システムの概要}
-本研究では，スポーツに焦点を当て野球とサッカーの動作を行えるプロジェクションマッピングを実装した．
+本研究では，スポーツに焦点を当て，野球とサッカーの動作を行うことができる
+プロジェクションマッピングを実装した．
 
 ユーザに図\ref{combination}のCombination画面の投影を行い，
 ユーザのスケルトン座標に応じてインタラクティブに
@@ -84,15 +84,15 @@ OpenGL\cite{opengl3d}\cite{openglprogram}は，
 以下の9つの画面を出力する．
 
 \begin{itemize}
-    \item Ball: スポーツで用いるボール（図\ref{ball}）
-    \item Color: RGBカメラの映像（図\ref{color}）
-    \item Depth: 深度カメラの映像（図\ref{depth}）
-    \item User: 人領域の映像（図\ref{user}）
-    \item Combination: 投影用（図\ref{combination}）
-    \item Combination\_PC: PC用（図\ref{combination}）
-    \item Skeleton: 人の骨格情報（図\ref{skeleton}）
-    \item Gray: Color画面にグレースケールを実行した画面（図\ref{gray}）
-    \item Cascade: 黒い背景画像にGray画面を合成した画面（図\ref{cascade}）
+    \item Ball画面: スポーツで用いるボール（図\ref{ball}）
+    \item Color画面: RGBカメラの映像（図\ref{color}）
+    \item Depth画面: 深度カメラの映像（図\ref{depth}）
+    \item User画面: 人領域の映像（図\ref{user}）
+    \item Combination画面: 投影用（図\ref{combination}）
+    \item Combination\_PC画面: PC用（図\ref{combination}）
+    \item Skeleton画面: 人の骨格情報（図\ref{skeleton}）
+    \item Gray画面: Color画面にグレースケールを実行した画面（図\ref{gray}）
+    \item Cascade画面: 黒い背景画像にGray画面を合成した画面（図\ref{cascade}）
 \end{itemize}
 
 \clearpage
@@ -170,7 +170,7 @@ OpenGL\cite{opengl3d}\cite{openglprogram}は，
 \clearpage
 
 \subsection{スケルトンナンバー}
-Kinect v1において，スケルトンは図\ref{num}に示すように番号が割り当てられている．
+Kinect for Windows v1において，スケルトンナンバーは図\ref{num}に示すように割り当てられている．
 
 \begin{figure}[htbp]
     \centering
@@ -205,8 +205,8 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
 
 
 \begin{enumerate}
-    \item 左肩と右肩の$y$座標の差が$100mm$未満
-    \item 左肘と右肘の$y$座標の差が$120mm$未満
+    \item 左肩と右肩の$y$座標の差が$420mm$未満
+    \item 左肘と右肘の$y$座標の差が$450mm$未満
 \end{enumerate}
 
 \vspace{1cm}
@@ -221,6 +221,7 @@ Kinect v1において，スケルトンは図\ref{num}に示すように番号�
 
 それぞれのモードにおいて，一連の動作が終了すると初期化を行う．
 それによって，連続して投影を行うことを可能にした．
+
 それぞれのモードに切り替わる前は，画面は黒い初期画面である．
 
 \clearpage
